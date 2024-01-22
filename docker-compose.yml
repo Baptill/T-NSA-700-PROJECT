@@ -1,0 +1,40 @@
+version: "3.7"
+
+services:
+  infra:
+    image: debian:latest
+    build: 
+      dockerfile: Dockerfile-infra
+    privileged: true
+    command: tail -f /dev/null
+    ports:
+      - "80:80"
+      - "443:443"
+      - "222:22"
+
+  back:
+    image: debian:latest
+    build: 
+      dockerfile: Dockerfile-back
+    privileged: true
+    command: tail -f /dev/null
+    ports:
+      - "4000:4000"
+
+  front:
+    image: debian:latest
+    build: 
+      dockerfile: Dockerfile-front
+    privileged: true
+    command: tail -f /dev/null
+    ports:
+      - "5432:5432"
+
+  db:
+    image: debian:latest
+    build: 
+      dockerfile: Dockerfile-db
+    privileged: true
+    command: tail -f /dev/null
+    ports:
+      - "8080:8080"

@@ -1,2 +1,1 @@
-# T-NSA-700-PROJECT
-Project T-NSA-700: DevOps
+# T-NSA-700-REN_7

@@ -1,0 +1,7 @@
+FROM debian:latest
+ 
+RUN apt update
+
+RUN apt-get install -y curl openssh-server ca-certificates perl
+
+RUN curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | bash

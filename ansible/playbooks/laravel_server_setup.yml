@@ -1,0 +1,13 @@
+---
+- hosts: laravel_vm
+  tasks:
+    - name: Install PHP, Composer, Laravel
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - php
+        - composer
+
+    - name: Create Laravel project
+      command: composer create-project --prefer-dist laravel/laravel
