@@ -2,6 +2,9 @@
 - hosts: back
   become: true
 
+  vars:
+      ansible_become_password: ansible
+      
   roles:
     - php
     - nginx_back

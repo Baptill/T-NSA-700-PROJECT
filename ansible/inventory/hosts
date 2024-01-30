@@ -1,11 +1,11 @@
 [database]
-t-nsa-db-1
+db
 
 [front]
-t-nsa-front-1
+front
 
 [back]
-t-nsa-back-1
+back
 
 [all:vars]
 ansible_ssh_user=root

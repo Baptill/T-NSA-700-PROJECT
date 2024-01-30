@@ -5,11 +5,10 @@ services:
     build: 
       dockerfile: master.Dockerfile
     volumes:
-      - ./ansible/playbooks:/root/playbooks
-      - ./ansible/inventory/hosts:/etc/ansible
+      - ./ansible/:/root/
     command: tail -f /dev/null
     ports: 
-     - "2224:22"
+     - "2220:22"
 
   back:
     build: 
