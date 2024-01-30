@@ -2,39 +2,26 @@ version: "3.7"
 
 services:
   infra:
-    image: debian:latest
     build: 
-      dockerfile: Dockerfile-infra
-    privileged: true
+      dockerfile: master.Dockerfile
+    volumes:
+      - ./ansible/playbooks:/root/playbooks
+      - ./ansible/inventory/hosts:/etc/ansible
     command: tail -f /dev/null
-    ports:
-      - "80:80"
-      - "443:443"
-      - "222:22"
+    ports: 
+     - "2224:22"
 
   back:
-    image: debian:latest
     build: 
-      dockerfile: Dockerfile-back
-    privileged: true
-    command: tail -f /dev/null
-    ports:
-      - "4000:4000"
+      dockerfile: server.Dockerfile
+    command: bash -c "service ssh start && tail -f /dev/null" 
 
   front:
-    image: debian:latest
     build: 
-      dockerfile: Dockerfile-front
-    privileged: true
-    command: tail -f /dev/null
-    ports:
-      - "5432:5432"
+      dockerfile: server.Dockerfile
+    command: bash -c "service ssh start && tail -f /dev/null" 
 
   db:
-    image: debian:latest
     build: 
-      dockerfile: Dockerfile-db
-    privileged: true
-    command: tail -f /dev/null
-    ports:
-      - "8080:8080"
+      dockerfile: server.Dockerfile
+    command: bash -c "service ssh start && tail -f /dev/null" 

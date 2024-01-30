@@ -1,0 +1,12 @@
+---
+- name: update
+  apt:
+    update_cache: yes
+
+- name: install nodejs
+  apt:
+    name: nodejs
+
+- name: install npm
+  apt:
+    name: npm

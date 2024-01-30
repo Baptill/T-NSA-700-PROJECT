@@ -1,0 +1,7 @@
+---
+# Variable configuration.
+- ansible.builtin.include_tasks: variables.yml
+
+# Setup/install tasks
+- ansible.builtin.include_tasks: setup_mysql.yml
+  when: ansible_os_family == 'Debian'

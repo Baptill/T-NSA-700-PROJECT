@@ -1,0 +1,35 @@
+stages:
+  - test
+  - deploy
+
+variables:
+  DOCKER_IMAGE_FRONT: "your-frontend-docker-image:latest"
+  DOCKER_IMAGE_BACK: "your-backend-docker-image:latest"
+  DOCKER_IMAGE_SQL: "your-sql-docker-image:latest"
+
+test:
+  stage: test
+  script:
+    - master # Ajoutez des commandes pour exécuter les tests dans votre conteneur Docker ici
+
+deploy_front:
+  stage: deploy
+  script:
+    - docker pull $DOCKER_IMAGE_FRONT
+    - docker run --rm $DOCKER_IMAGE_FRONT ansible-playbook -i inventory/hosts playbooks/deploy/front.yml
+  only:
+    - master  # Déployer uniquement depuis la branche master
+
+deploy_back:
+  stage: deploy
+  script:
+    - docker pull $DOCKER_IMAGE_BACK
+    - docker run --rm $DOCKER_IMAGE_BACK ansible-playbook -i inventory/hosts playbooks/deploy/back.yml
+  only:
+    - master  # Déployer uniquement depuis la branche master
+
+deploy_sql:
+  stage: deploy
+  script:
+    - docker pull $DOCKER_IMAGE_SQL
+    - docker run --rm $DOCKER_IMAGE_SQL ansible-playbook -i inventory/hosts playbooks/deploy/sql.yml

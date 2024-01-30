@@ -1,0 +1,9 @@
+---
+- name: Download Composer
+  script: scripts/composer.sh
+- name: Move Composer globally
+  command: mv composer.phar /usr/local/bin/composer
+- name: Set permissions on Composer
+  file:
+    path: /usr/local/bin/composer
+    mode: "a+x"

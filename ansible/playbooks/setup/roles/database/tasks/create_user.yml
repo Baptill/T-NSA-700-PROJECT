@@ -1,0 +1,13 @@
+---
+- name: create db user named root
+  mysql_user:
+    name: root
+    password: root
+    priv: "*.*:ALL"
+    login_unix_socket: /run/mysqld/mysqld.sock
+- name: allow remote access to user named root
+  mysql_user:
+    name: root
+    host_all: yes
+    login_unix_socket: /run/mysqld/mysqld.sock
+    state: present

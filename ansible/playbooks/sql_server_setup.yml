@@ -1,7 +1,0 @@
----
-- hosts: sql_server
-  tasks:
-    - name: Install SQL Server
-      apt:
-        name: mssql-server
-        state: present

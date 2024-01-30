@@ -1,0 +1,11 @@
+---
+- hosts: back
+  become: true
+
+  roles:
+    - php
+    - nginx_back
+    - composer
+    - env_back
+
+    # Ajouter d'autres rôles ou tâches spécifiques au backend au besoin

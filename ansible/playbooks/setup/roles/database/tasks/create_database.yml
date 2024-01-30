@@ -1,0 +1,10 @@
+---
+- name: install rpl
+  apt:
+    name: rpl
+- name: authorize all ips to connect to the db
+  command: rpl "127.0.0.1" "0.0.0.0" /etc/mysql/my.cnf
+  become: yes
+- name: restart mysql
+  command: systemctl restart mysql
+  become: yes
