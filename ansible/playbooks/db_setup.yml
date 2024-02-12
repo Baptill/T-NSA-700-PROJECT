@@ -1,0 +1,9 @@
+- name: Configure SQL on DB container
+  hosts: database
+  become: true
+  tasks:
+    - name: Install MySQL server
+      apt:
+        name: mysql-server
+        state: present
+      become: true

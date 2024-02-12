@@ -1,9 +1,0 @@
----
-- hosts: database
-  roles:
-    - role: mysql
-      become: yes
-    - role: database
-      become: yes
-
-    # Ajouter d'autres rôles ou tâches spécifiques à la base de données au besoin

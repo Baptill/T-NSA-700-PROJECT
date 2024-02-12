@@ -1,6 +1,0 @@
----
-- name: Angular setup task
-  shell:  |
-    npm install -g angular
-    npm install -g ng
-    npm install -g @angular/cli

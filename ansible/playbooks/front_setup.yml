@@ -1,0 +1,13 @@
+- name: Configure Angular on front-end container
+  hosts: front
+  become: true
+  tasks:
+    - name: Install Node.js and npm
+      apt:
+        name: [nodejs, npm]
+        state: present
+      become: true
+    - name: Install Angular CLI
+      npm:
+        name: '@angular/cli'
+        global: yes

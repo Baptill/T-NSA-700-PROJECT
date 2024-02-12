@@ -10,12 +10,12 @@ services:
     ports: 
      - "2220:22"
 
-  back:
+  front:
     build: 
       dockerfile: server.Dockerfile
     command: bash -c "service ssh start && tail -f /dev/null" 
 
-  front:
+  back:
     build: 
       dockerfile: server.Dockerfile
     command: bash -c "service ssh start && tail -f /dev/null" 

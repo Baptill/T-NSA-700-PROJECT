@@ -1,0 +1,12 @@
+- name: Configure Laravel on back-end container
+  hosts: back
+  become: true
+  tasks:
+    - name: Install PHP and Composer
+      apt:
+        name: [php, composer]
+        state: present
+      become: true
+
+    - name: Install Laravel installer
+      shell: composer global require laravel/installer

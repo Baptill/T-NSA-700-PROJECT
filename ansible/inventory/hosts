@@ -1,12 +1,13 @@
 [database]
-db
+db ansible_host=db
 
 [front]
-front
+front ansible_host=front
 
 [back]
-back
+back ansible_host=back
 
 [all:vars]
 ansible_ssh_user=root
 ansible_ssh_pass=ansible
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
